@@ -6,6 +6,13 @@ import bodyParser from "body-parser";
 const app = express();
 const PORT = 4000;
 
+// mongoose connection
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/CRMdb', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
 // body parser setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
